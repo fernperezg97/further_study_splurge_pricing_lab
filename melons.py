@@ -13,26 +13,17 @@ class AbstractMelonOrder:
         self.shipped = False
         
     def get_base_price(self):
-        weekday = datetime.datetime.isoweekday()
+        weekday = datetime.datetime.now().isoweekday()
 
         current_time = str(datetime.datetime.now().time())
         hour = current_time[0:2]
-        print(hour)
+        # print(hour)
 
-        #  Judging whether the current time is within the range
-        if n_time > d_time and n_time < d_time1 and 0 < weekday < 5:
+        if 8 < hour < 11 and 0 < weekday < 5:
             return randint(5,9) + 4
         else:
             return randint(5,9)
 
-        
-        
-        # current_time = datetime.datetime.hour()
-
-        # if week < 5 and 8 < current_time < 11:
-        #     return randint(5,9) + 4
-        # else:
-        #     return randint(5,9)
 
     def get_total(self):
         """Calculate price, including tax."""
