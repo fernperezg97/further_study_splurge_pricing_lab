@@ -15,16 +15,9 @@ class AbstractMelonOrder:
     def get_base_price(self):
         weekday = datetime.datetime.isoweekday()
 
-        # Range time
-        d_time = datetime.datetime.strptime(str(datetime.datetime.now().date()) + '8:00', '%Y-%m-%d%H:%M')
-        d_time1 = datetime.datetime.strptime(str(datetime.datetime.now().date()) + '11:00', '%Y-%m-%d%H:%M')
-
-        x = datetime.strptime(datetime.datetime.now().date(), "%d/%m/%y %H:%M")
-        hour = str(x.time())[0:2]
+        current_time = str(datetime.datetime.now().time())
+        hour = current_time[0:2]
         print(hour)
- 
-        #  current time
-        n_time = datetime.datetime.now()
 
         #  Judging whether the current time is within the range
         if n_time > d_time and n_time < d_time1 and 0 < weekday < 5:
